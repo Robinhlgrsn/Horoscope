@@ -9,8 +9,8 @@ try {
 
         if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
             //REQUESTMETHOD IS DELETE
-            if (isset($_SESSION["month"])) {
-                unset($_SESSION["month"]);
+            if (isset($_SESSION["horoscope"])) {
+                unset($_SESSION["horoscope"]);
                 echo json_encode(true);
             } else {
                 echo json_encode(false);

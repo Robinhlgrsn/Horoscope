@@ -6,8 +6,10 @@ try {
 
     require('./horoscopes.php');
 
-    $month = unserialize($_SESSION["month"]);
-    $day = unserialize($_SESSION["day"]);
+    $horoscope = $_SESSION["horoscope"];
+
+    /*    $month = unserialize($_SESSION["month"]);
+    $day = unserialize($_SESSION["day"]); */
 
     //Check if request has been made
     if (isset($_SERVER["REQUEST_METHOD"])) {
@@ -18,7 +20,7 @@ try {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             //REQUESTMETHOD IS GET 
 
-            echo json_encode(checkHoroscope($month, $day));
+            echo json_encode($horoscope);
 
             /*        if (isset($_SESSION["month"])) {
                 echo json_encode(unserialize($month));
