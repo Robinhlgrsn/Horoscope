@@ -28,6 +28,7 @@ async function saveHoroscope(){
 async function updateHoroscope(){
     console.log("update")
     const collectedName = await makeRequest("./server/addHoroscope.php", "POST") 
+    viewHoroscope()
 }
 
 async function deleteHoroscope(){

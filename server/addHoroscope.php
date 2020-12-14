@@ -9,20 +9,17 @@ try {
     //Check if request has been made
     if (isset($_SERVER["REQUEST_METHOD"])) {
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") { //if request method is post
 
-            //REQUESTMETHOD IS POST
 
             $month = $_SESSION["month"] = $_POST["month"];
             $day = $_SESSION["day"] = $_POST["day"];
             $horoscope = checkHoroscope($month, $day);
 
-            //checks if name in body is set
-            if (isset($_SESSION["horoscope"])) {
-                //saves $_post name to the session
+            //checks if horoscope is saved in session
+            if (!!isset($_SESSION["horoscope"])) {
                 echo json_encode(true);
-                // man vill skicka tillbaka något och lämna sen 
-            } else {
+            } else { // if not saved, save horoscope
                 $_SESSION["horoscope"] = $horoscope;
                 // throw exeption if no name wads included in the body of the request
                 throw new Exception("no name was found in request body", 500);
