@@ -11,13 +11,12 @@ try {
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") { //if request method is post
 
-
             $month = $_SESSION["month"] = $_POST["month"];
             $day = $_SESSION["day"] = $_POST["day"];
             $horoscope = checkHoroscope($month, $day);
 
             //checks if horoscope is saved in session
-            if (!!isset($_SESSION["horoscope"])) {
+            if (isset($_SESSION["horoscope"])) {
                 echo json_encode(true);
             } else { // if not saved, save horoscope
                 $_SESSION["horoscope"] = $horoscope;

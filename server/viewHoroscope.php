@@ -5,20 +5,24 @@ try {
     session_start();
 
     $horoscope = $_SESSION["horoscope"];
-
+    $update = $_SESSION["update"];
     //Check if request has been made
     if (isset($_SERVER["REQUEST_METHOD"])) {
 
 
 
 
+
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             //REQUESTMETHOD IS GET 
+            $_SESSION["updatedHoroscope"];
 
             if (isset($_SESSION["horoscope"])) {
                 echo json_encode($horoscope);
+            } elseif (isset($_SESSION["update"])) {
+                echo json_encode($update);
             } else {
-                echo json_encode("inget horoscope sparat");
+                echo json_encode("skitkorv");
             }
         } else {
             throw new Exception("not a valid request-method", 405);

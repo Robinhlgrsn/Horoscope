@@ -20,6 +20,7 @@ async function saveHoroscope(){
     const body = new FormData() //formdata paketerar information som ska skickas till servern   
     body.set("day", day)
     body.set("month", month)
+    
     const collectedName = await makeRequest("./server/addHoroscope.php", "POST", body)
    /*  console.log(collectedName) */
     viewHoroscope()
@@ -27,7 +28,18 @@ async function saveHoroscope(){
 
 async function updateHoroscope(){
     console.log("update")
-    const collectedName = await makeRequest("./server/addHoroscope.php", "POST") 
+    const nameToSave = getInput()
+    let month = getMonth()
+    let day = getDay()
+
+    if(!nameToSave.length){
+       return false
+    } 
+
+    const body = new FormData() //formdata paketerar information som ska skickas till servern   
+    body.set("day", day)
+    body.set("month", month)
+    const collectedName = await makeRequest("./server/updateHoroscope.php", "POST", body) 
     viewHoroscope()
 }
 
@@ -70,5 +82,3 @@ function getMonth(){
    let month = date.split('-')
     return parseInt(month[1])
 }
-
-

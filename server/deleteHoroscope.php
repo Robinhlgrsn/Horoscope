@@ -12,11 +12,13 @@ try {
             if (isset($_SESSION["horoscope"])) {
                 unset($_SESSION["horoscope"]);
                 echo json_encode(true);
-            } else {
-                echo json_encode(false);
+            } elseif (isset($_SESSION["update"])) {
+                unset($_SESSION["update"]);
+                echo json_encode(true);
             }
         } else {
-            echo json_encode("no date found");
+
+            echo json_encode(false);
             throw new Exception("not a valid request-method", 405);
         }
     }
