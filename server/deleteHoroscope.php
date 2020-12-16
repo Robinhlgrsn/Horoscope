@@ -10,15 +10,15 @@ try {
         if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
             //REQUESTMETHOD IS DELETE
             if (isset($_SESSION["horoscope"])) {
-                unset($_SESSION["horoscope"]);
+                session_destroy();
                 echo json_encode(true);
-            } elseif (isset($_SESSION["update"])) {
-                unset($_SESSION["update"]);
-                echo json_encode(true);
+                exit;
+            } else {
+                echo json_encode(false);
+                exit;
             }
         } else {
 
-            echo json_encode(false);
             throw new Exception("not a valid request-method", 405);
         }
     }

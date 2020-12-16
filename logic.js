@@ -22,7 +22,7 @@ async function saveHoroscope(){
     body.set("month", month)
     
     const collectedName = await makeRequest("./server/addHoroscope.php", "POST", body)
-   /*  console.log(collectedName) */
+    console.log(collectedName)
     viewHoroscope()
 }
 
@@ -46,6 +46,7 @@ async function updateHoroscope(){
 async function deleteHoroscope(){
     console.log("Delete")
     const collectedName = await makeRequest("./server/deleteHoroscope.php", "DELETE")
+    console.log(collectedName)
     viewHoroscope() 
 }
 
@@ -61,10 +62,10 @@ async function makeRequest(path, method, body){
             method,
             body
         })
-        console.log(response)
+        
         return response.json()
     }catch(err){
-        console.log(err)
+        console.log("err")
     }
 }
 
