@@ -16,12 +16,15 @@ try {
             $horoscope = checkHoroscope($month, $day);
 
             //checks if horoscope is saved in session
-            if (isset($_SESSION["horoscope"])) {
+
+            if (!isset($_SESSION["horoscope"])) {
+                $_SESSION["horoscope"] = $horoscope;
+
                 echo json_encode(true);
             } else { // if not saved, save horoscope
                 $_SESSION["horoscope"] = $horoscope;
                 // throw exeption if no name wads included in the body of the request
-                throw new Exception("no name was found in request body", 500);
+                throw new Exception("no name was found in request body", 4);
             }
         } else {
             // throw exeption if invalid request method
