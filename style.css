@@ -26,8 +26,7 @@ body{
     display: flex;
     justify-content: center;
     position: relative;
-    width: 500px;
-    
+    width: 500px;  
 }
 
 #imageOne {
@@ -61,7 +60,7 @@ body{
     justify-content: space-around;
     flex-direction: row;
     width: 20vw;
-    height: 10vh;
+    height: 5vh;
 }
 
 .zodiacContainer{
@@ -89,17 +88,26 @@ h1{
 #deleteBtn{
     display: none;
 }
+#saveBtn{
+  display: block;
+}
+#updateBtn{
+  display: none;
+}
 
 button{
-    border: thin 1px;
-    height:25px;
+    border: thin solid #AAF0C1 ;
+    height:30px;
+    width: 60px;
     color: white;
-    background-color:AAF0C1 ;
-    
+    background-color: black;  
 }
 
 input{
-  border:none;
-  width: 156px;
+  border:2px solid #AAF0C1 ;
+  font-size: 1em;
+  width: 200px;
   height: 40px;
+  background-color: #131313;
+  color: white;
 }

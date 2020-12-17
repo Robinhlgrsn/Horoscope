@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 function checkHoroscope($month, $day)
 {
     if ($month == 3 && $day >= 21 || $month == 4 && $day <= 19) {
@@ -31,31 +28,3 @@ function checkHoroscope($month, $day)
         return "PISCES";
     }
 }
-
-/* Vädur = Aries
-2. Oxen = Taurus
-3. Tvillingarna = Gemini
-4. Kräftan = Cancer
-5. Lejonet = Leo
-6. Jungfrun = Virgo
-7. Vågen = Libra
-8. Skorpionen = Scorpio
-9. Skytten = Sagittarius
-10. Stenbocken = Capricorn
-11. Vattumannen = Aquarius
-12. Fiskarna = Pisces  */
-
-
-
-/*  Väduren: 21 mars – 19 april 03/21 - 04/21
-Oxen: 20 april – 20 maj  04/20 - 05/20
-Tvillingarna: 21 maj – 21 juni  05/21 - 06/21
-Kräftan: 22 juni – 22 juli  06/28 -07/22
-Lejonet: 23 juli – 22 augusti  07/23 - 08/22
-Jungfrun: 23 augusti – 22 september  08/23 - 09/22
-Vågen: 23 september – 22 oktober   09/23 - 10/22
-Skorpionen: 23 oktober – 21 november  10/23 - 11/21
-Skytten: 22 november – 21 december   11/22 - 12/21
-Stenbocken: 22 december – 19 januari  12/22 - 01/19 
-Vattumannen: 20 januari – 18 februari  01/20 - 02/18
-Fiskarna: 19 februari – 20 mars  02/19 - 03/20 */

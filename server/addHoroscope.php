@@ -13,7 +13,8 @@ try {
             $day = $_POST["day"];
             $horoscope = checkHoroscope($month, $day);
 
-            if (!isset($_SESSION["horoscope"])) {
+
+            if (!isset($_SESSION["horoscope"]) &&  $horoscope != null) {
                 $_SESSION["horoscope"] = $horoscope;
                 echo json_encode(true);
                 exit;
@@ -22,7 +23,6 @@ try {
                 exit;
             }
         } else {
-
             throw new Exception("not a valid request-method", 405);
         }
     }
