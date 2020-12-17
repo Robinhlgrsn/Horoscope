@@ -15,7 +15,7 @@ try {
                 $horoscope = $_SESSION["horoscope"];
                 echo json_encode($horoscope);
             } else {
-                echo json_encode("skriv in namn");
+                echo json_encode(false);
             }
         } else {
             throw new Exception("not a valid request-method", 405);

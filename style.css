@@ -1,17 +1,105 @@
-#mainContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-
-    width: 200px;
-}
-
-h1{
-    color: red;
+*{
+    box-sizing: border-box;
+   font-family: Baskerville Display PT Bold ,baskerville PT;
 }
 
 body{
+ margin: 0;
+
+    background-color: #131313;
+}
+
+.imgHeader{
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-bottom:  10px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.imgContainer{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 500px;
+    
+}
+
+#imageOne {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  #imageTwo {
+
+    position:absolute;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    left: 1px;
+    animation: rotation 100s infinite linear;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  
+.buttonContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 20vw;
+    height: 10vh;
+}
+
+.zodiacContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+}
+
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+}
+
+h1{
+    color:#AAF0C1;
+}
+
+#deleteBtn{
+    display: none;
+}
+
+button{
+    border: thin 1px;
+    height:25px;
+    color: white;
+    background-color:AAF0C1 ;
+    
+}
+
+input{
+  border:none;
+  width: 156px;
+  height: 40px;
 }

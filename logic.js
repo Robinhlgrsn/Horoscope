@@ -8,6 +8,7 @@ btnDelete.addEventListener("click", deleteHoroscope)
 
 viewHoroscope()
 
+
 async function saveHoroscope(){
     const nameToSave = getInput()
     let month = getMonth()
@@ -17,43 +18,51 @@ async function saveHoroscope(){
        return false
     } 
 
-    const body = new FormData() //formdata paketerar information som ska skickas till servern   
-    body.set("day", day)
-    body.set("month", month)
-    
-    const collectedName = await makeRequest("./server/addHoroscope.php", "POST", body)
-    console.log(collectedName)
-    viewHoroscope()
-}
-
-async function updateHoroscope(){
-    console.log("update")
-    const nameToSave = getInput()
-    let month = getMonth()
-    let day = getDay()
-
-    if(!nameToSave.length){
-       return false
+    if(true){
+        btnDelete.style.display = "block";
     } 
 
     const body = new FormData() //formdata paketerar information som ska skickas till servern   
     body.set("day", day)
     body.set("month", month)
-    const collectedName = await makeRequest("./server/updateHoroscope.php", "POST", body) 
+    
+    const saveDate = await makeRequest("./server/addHoroscope.php", "POST", body)
+    
+    viewHoroscope()
+}
+
+
+async function updateHoroscope(){
+    const nameToSave = getInput()
+    let month = getMonth()
+    let day = getDay()
+    const body = new FormData() //formdata paketerar information som ska skickas till servern   
+
+    body.set("day", day)
+    body.set("month", month)
+    const UpdateDate = await makeRequest("./server/updateHoroscope.php", "POST", body) 
     viewHoroscope()
 }
 
 async function deleteHoroscope(){
     console.log("Delete")
-    const collectedName = await makeRequest("./server/deleteHoroscope.php", "DELETE")
-    console.log(collectedName)
+    const deleteResponse = await makeRequest("./server/deleteHoroscope.php", "DELETE")
+    if(true){
+        btnDelete.style.display = "none";
+    } 
     viewHoroscope() 
 }
 
 async function viewHoroscope(){
-    const nameText = document.getElementById("nameCon")
-    const collectedName = await makeRequest("./server/viewHoroscope.php", "GET")
-    nameText.innerText = collectedName
+    const nameText = document.getElementById("zodiacSaved")
+    const nameZodiac = await makeRequest("./server/viewHoroscope.php", "GET")
+    
+    if(nameZodiac === false){
+        nameText.innerText = "Enter date of birth"
+    } else{
+        nameText.innerText = nameZodiac
+        btnDelete.style.display = "block";
+    }
  }
 
 async function makeRequest(path, method, body){

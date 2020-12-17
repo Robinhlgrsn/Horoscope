@@ -6,16 +6,30 @@
     <title>Horoscope</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="logic.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/daj4mqy.css">
 </head>
 <body id="body">
+    
+    <header class="imgHeader">
+        <div class="imgContainer">
+            <img id="imageOne" src="./assets/zodiacTheOne.png" alt="">
+            <img id="imageTwo" src="./assets/zodiacTheTwo.png" alt="">
+        </div> 
+    </header>
 
     <div id="mainContainer">
-        <h1 id="nameCon"></h1>
-        <input id="inputHoroscope" type="date" >
-        <button id="saveBtn">Save</button>
-        <button id="updateBtn">Update</button>
-        <button id="deleteBtn">Delete</button>
-        
+
+        <div class="zodiacContainer">
+            <h1 id="zodiacSaved"></h1>
+            <input id="inputHoroscope" type="date" >
+        </div>
+            
+            <div class="buttonContainer">
+                <button id="saveBtn">Save</button>
+                <button id="updateBtn">Update</button>
+                <button id="deleteBtn">Delete</button>
+            </div>
+
     </div>
     
 </body>

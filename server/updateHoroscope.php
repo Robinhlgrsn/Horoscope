@@ -24,12 +24,7 @@ try {
                 echo json_encode(true);
             } else { // if not saved, save horoscope
                 echo json_encode(false);
-                // throw exeption if no name wads included in the body of the request
-                throw new Exception("no name was found in request body", 500);
             }
-        } else {
-            // throw exeption if invalid request method
-            throw new Exception("not a valid request-method", 405);
         }
     }
 } catch (Exception $error) {
